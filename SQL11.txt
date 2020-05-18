@@ -1,0 +1,80 @@
+信息系统与数据库技术练习10答题卡
+
+班级：    信管一班 
+姓名：     李明杰
+学号：     20190307130
+
+注：请将答案放置在序号下方。*/
+
+（一）
+1.
+
+USE Project
+
+2.
+SELECT Pid,Ename,WorkDate,BasePay
+FROM Employee JOIN EP
+ON  Employee.Eid=EP.Eid
+
+
+3.
+SELECT Eid,Wages,Project.*
+FROM EP JOIN Project
+ON  EP.Pid=Project.Pid
+WHERE Wages>5000
+
+
+
+4.
+SELECT Employee.Did,Dname,Eid,Ename,Esex
+FROM Department JOIN Employee
+ON Department.Did=Employee.Did
+WHERE Esex='0'
+
+
+5.
+
+SELECT EP.Eid,Ename,Pid,Wages
+FROM Employee JOIN EP
+ON  Employee.Eid=EP.Eid
+WHERE Ename='陈燕玲'
+ORDER BY Wages DESC
+
+6.
+SELECT Did,EP.Eid,Ename,EP.Pid,Pname,Wages
+FROM EP JOIN Project JOIN Employee
+ON Project. =Employee.
+ON EP.Pid=Project.Pid
+WHERE Did='D002' AND Pname IN('1#''3#')
+
+7.
+SELECT Did,EP.Eid,Ename,EP.Pid,Pname,Wages
+FROM EP A JOIN Project B JOIN Employee C
+ON B. =C.
+ON A.Pid=B.Pid
+WHERE Did='D002' AND Pname IN('1#''3#')
+
+8.
+SELECT A.Eid,Ename,EP.Pid,Wages
+FROM Employee A left join EP
+ON A.Eid=EP.Eid
+
+9.
+SELECT EP.Eid,Wages,A.*
+FROM EP right JOIN Project A
+ON A.Pid=EP.Pid
+
+10.
+SELECT A.*,EP.Wages,B.Eid,Ename
+FROM Project A FULL JOIN EP JOIN Employee B
+ON B.Eid=EP.Eid
+ON A.Pid=EP.Pid
+
+
+
+
+11.SELECT A.Did,Dname,C.Eid
+FROM Department A JOIN Employee C JOIN EP JOIN Project B 
+ON B.Pid=EP.Pid
+ON C.Eid=EP.Eid
+ON A.Did=C.Did
